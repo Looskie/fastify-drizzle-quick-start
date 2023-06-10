@@ -1,0 +1,39 @@
+{
+  "name": "fastify-drizzle-quick-start",
+  "version": "1.0.0",
+  "description": "Quick start for Fastify, TypeScript, ESlint, Prettier and DrizzleORM",
+  "main": "index.js",
+  "repository": "https://github.com/Looskie/fastify-drizzle-quick-start.git",
+  "author": "Cody Miller <50378828+Looskie@users.noreply.github.com>",
+  "license": "none",
+  "scripts": {
+    "lint": "eslint . --ext .ts",
+    "dev": "tsx watch --clear-screen=false src/index.ts",
+    "prettier": "prettier --write .",
+    "migrate": "drizzle-kit generate:pg"
+  },
+  "devDependencies": {
+    "@types/cli-color": "^2.0.2",
+    "@types/node": "^20.2.5",
+    "@types/pg": "^8.10.2",
+    "@typescript-eslint/eslint-plugin": ">=5.57.0",
+    "@typescript-eslint/parser": ">=5.57.0",
+    "cli-color": "^2.0.3",
+    "dotenv": "^16.1.4",
+    "drizzle-kit": "^0.18.1",
+    "eslint": ">=8.0.0",
+    "eslint-config-xo": "^0.43.1",
+    "eslint-config-xo-typescript": "^0.57.0",
+    "prettier": "^2.8.8",
+    "tsx": "^3.12.7",
+    "typescript": ">=4.4"
+  },
+  "dependencies": {
+    "@fastify/cors": "^8.3.0",
+    "drizzle-orm": "^0.26.5",
+    "fastify": "^4.18.0",
+    "pg": "^8.11.0",
+    "redis": "^4.6.7",
+    "zod": "^3.21.4"
+  }
+}
