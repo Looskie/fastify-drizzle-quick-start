@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
-    "moduleResolution": "bundler",
-    "module": "ESNext",
+    "module": "CommonJS",
     "target": "ESNext",
     "strict": true,
     "useUnknownInCatchVariables": true,
@@ -9,14 +8,16 @@
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "outDir": "dist",
+    "esModuleInterop": true,
     "exactOptionalPropertyTypes": true,
     "noImplicitReturns": true,
     "noUncheckedIndexedAccess": true,
-    "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
     "baseUrl": ".",
     "paths": {
       "@api/*": ["src/*"]
-    }
-  }
+    },
+    "skipLibCheck": true
+  },
+  "exclude": ["node_modules", "./dist/**/*"]
 }
