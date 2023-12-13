@@ -9,7 +9,7 @@ Quick start for Fastify, TypeScript, ESlint, Prettier and DrizzleORM
 
 - Dockerfile including postgres and redis
 - TypeScript
-- ESLint
+- XO
 - Prettier
 - DrizzleORM
 - Fastify
