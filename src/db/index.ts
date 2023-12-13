@@ -4,6 +4,7 @@ import { drizzle } from "drizzle-orm/node-postgres";
 import { migrate } from "drizzle-orm/node-postgres/migrator";
 import { Pool } from "pg";
 
+// eslint-disable-next-line import/no-mutable-exports
 export let db: ReturnType<typeof drizzle<typeof schema>>;
 
 export const initDb = async () => {
@@ -16,12 +17,14 @@ export const initDb = async () => {
 
       return client;
     })
-    .catch((err) => {
-      Logger.error("INIT", `Failed to connect to database ${String(err)}}`);
-      process.exit(1);
+    .catch((error) => {
+      Logger.error("INIT", `Failed to connect to database ${String(error)}}`);
+      throw new Error(`Failed to connect to database ${String(error)}`);
     });
 
-  db = drizzle(pool);
+  db = drizzle(pool, {
+    schema,
+  });
 
   await migrate(db, {
     migrationsFolder: "./src/db/migrations",
@@ -29,8 +32,8 @@ export const initDb = async () => {
     .then(() => {
       Logger.info("INIT", "Migrated database");
     })
-    .catch((err) => {
-      Logger.error("INIT", `Failed to migrate database ${String(err)}`);
-      process.exit(1);
+    .catch((error) => {
+      Logger.error("INIT", `Failed to migrate database ${String(error)}`);
+      throw new Error(`Failed to migrate database ${String(error)}`);
     });
 };
